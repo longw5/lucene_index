@@ -1,4 +1,4 @@
-package com.beagle.test;
+package com.beagle.test.search;
 
 import java.io.IOException;
 import java.util.function.Consumer;

@@ -1,4 +1,4 @@
-package com.beagle.test;
+package com.beagle.test.index;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,10 +9,15 @@ import org.apache.lucene.search.IndexSearcher;
 
 import com.beagle.search.BdrtIndexSearcher;
 
-public class TestRebuildIndex2 {
+public class TestBatchIndex {
 
 	private static final String INDEXPATH = "E:\\lucene\\weibo\\index";
 
+	/**
+	 * 批量建添加docs
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 
 		System.out.println("开始执行.......................");

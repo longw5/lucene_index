@@ -1,4 +1,4 @@
-package com.beagle.test;
+package com.beagle.test.search;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ import org.apache.lucene.search.TopFieldDocs;
 
 import com.beagle.search.BdrtIndexSearcher;
 
-public class TestSearchIndex2 {
+public class TestSimpleQuerySearch {
 
 	private static final String INDEXPATH = "E:\\lucene\\weibo\\index";
 	// private static final String INDEXPATH = "E:\\lucene\\weibo\\index_tmp";

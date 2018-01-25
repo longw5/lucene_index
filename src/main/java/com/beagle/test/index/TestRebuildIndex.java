@@ -1,4 +1,4 @@
-package com.beagle.test;
+package com.beagle.test.index;
 
 import java.io.IOException;
 

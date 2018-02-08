@@ -1,26 +1,13 @@
 package com.beagle.test.search;
 
-import java.io.IOException;
-
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
-import org.apache.lucene.index.Term;
-import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
-import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.queryparser.simple.SimpleQueryParser;
-import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanClause.Occur;
-import org.apache.lucene.search.BooleanQuery;
-import org.apache.lucene.search.FieldValueQuery;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.Sort;
-import org.apache.lucene.search.SortField;
-import org.apache.lucene.search.SortField.Type;
-import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
-import org.apache.lucene.search.TopFieldDocs;
 
 import com.beagle.search.BdrtIndexSearcher;
 
@@ -36,9 +23,9 @@ public class TestSimpleQuerySearch {
 
 		StandardAnalyzer standardAnalyzer = new StandardAnalyzer();
 		
-		SimpleQueryParser parser = new SimpleQueryParser(standardAnalyzer, "accountName");
+		SimpleQueryParser parser = new SimpleQueryParser(standardAnalyzer, "cardNo");
 		parser.setDefaultOperator(Occur.MUST);
-		Query parse = parser.parse("xjch_521@126.com");
+		Query parse = parser.parse("310112199408103914");
 
 		TopDocs search = searcher.search(parse, 100);
 

@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.FieldType;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexableField;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.store.Directory;
 
 import com.beagle.constant.StoreConstant;
 import com.beagle.search.BdrtIndexSearcher;
@@ -31,6 +33,14 @@ public class TestRebuildIndex {
 		int maxDoc = reader.maxDoc();
 		
 		Document doc;
+		
+		Directory directory = writer.getDirectory();
+		System.out.println(directory.toString());
+		
+		
+		
+		System.exit(0);
+		
 		for (int i = 0; i < maxDoc; i++) {
 			try {
 				doc = searcher.doc(i);
@@ -38,12 +48,15 @@ public class TestRebuildIndex {
 				//模拟删除索引
 				IndexableField field1 = doc.getField("accountName"); 
 				IndexableField field2 = doc.getField("username"); 
+
+				FieldType fieldType = new FieldType();
+				
 				Field field_rev1 = new Field(field1.name(), field1.stringValue(), StoreConstant.STORE_NONE_INDEX);
 				Field field_rev2 = new Field(field2.name(), field2.stringValue(), StoreConstant.STORE_INDEX);
-				
+
 				doc.removeField("accountName"); 
 				doc.add(field_rev1);
-			
+				
 				doc.removeField("username"); 
 				doc.add(field_rev2);
 				System.out.println(doc.toString());

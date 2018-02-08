@@ -31,7 +31,6 @@ public class TestSearchIndex {
 			Document doc;
 			try {
 				doc = searcher.doc(i);
-				
 				System.out.println();
 				System.out.println("******************************************************************************");
 				
